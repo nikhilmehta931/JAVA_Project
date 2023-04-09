@@ -5,5 +5,5 @@
 5.if user chooses another Location the extra charges will implemented automatically.
 8.Seperate Adming Pannel so Admins can enter the user id and Password and they can see all types of
 packages Predefined and Custom packages.
-9.Customer can Able to see their Invoice with the help of tracking Id generated at that time
+9.Customer can able to see their Invoice with the help of tracking Id generated at the time of Creating Package.
 10.User can able to track their Package by Tracking id.
