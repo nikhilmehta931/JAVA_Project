@@ -9,22 +9,38 @@ public class CourierManagementSystem {
     static Random random = new Random();   
 
     static String text,name,Destination,r_name,state,district,House_no;
-    static String[] Locations= {"Jalandhar","Phagwara","Chandigarh","Amritsar","Ludhiana"};
-    static String[] new_Locations= new String[10];
+    static String Locations[] = new String[]{"Jalandhar", "Phagwara", "Chandigarh", "Amritsar", "Ludhiana","Delhi"};
+
+    // Locations[]= {"Jalandhar","Phagwara","Chandigarh","Amritsar","Ludhiana"};
+    
+
+    static String[] new_Locations= new String[5];
    static int ons,size,ID;
-    static Integer[] new_id= new Integer[size];
+    static Integer[] new_id= new Integer[5];
     static int newid,pincode;
-    static String[] newLocations = new String[10];
+    static String[] newLocations = new String[5];
     // static String[] Admin= new String[3];
-    static int[] pkgid=new int[10];
+    static int[] pkgid=new int[5];
 
     static Double packageWeight,cost;
     static String Admin[]={"Vishvajeet","Nikhil","Dipanshu"};
     static Integer[] Admin_Pass={6267,72096,9111};
-     static String[] packages= new String[10];
+     static String[] packages= new String[5];
+     
 
     public static void main(String[] args) throws InterruptedException {
-       try{
+       
+        // Locations[0]="Jalandhar";
+        // Locations[1]="Phagwara";
+        // Locations[2]="Chandigarh";
+        // Locations[3]="Amritsar";
+        // Locations[4]="Ludhiana";
+        // Locations[5]="Delhi";
+       
+       
+       
+       
+        try{
         String text = "\033[01m" +"\033[0;4m"+"****************Welcome To Courier Management System****************"+ "\033[0m"+ "\033[0m";
         int delay = 10; // Delay between each character (in milliseconds)
         
@@ -175,9 +191,9 @@ System.out.println("Enter the Destination of the Package:- ");
             String[] newPackages = Arrays.copyOf(packages, packages.length + 1);
             newPackages[newPackages.length - 1] = name;
             packages = newPackages;
-            
+            //add the Tracking id to pkgid array
             int[] newPkgid = Arrays.copyOf(pkgid, pkgid.length + 1);
-            newPkgid[newPkgid.length - 1] = ID;
+            newPkgid[newPkgid.length - 1] = newid;
             pkgid = newPkgid;
 
             String[] newLocations = Arrays.copyOf(new_Locations, new_Locations.length + 1);
@@ -239,11 +255,12 @@ catch(InputMismatchException e){
                     t1=false;
                    
                 }
-                else 
-        {
+            }
+        }
+        else{
             System.out.println("Invalid Admin ID...!!");
           String s="EXITING"+"\\/\\/\\/\\/\\/\\/\\/\\";
-          int delay=80;
+          int delay=150;
             for (int j = 0; j<s.length(); j++) {
                     Thread.sleep(delay);
                     System.out.print("\r"+s.substring(0,j+1));
@@ -251,8 +268,8 @@ catch(InputMismatchException e){
             // System.out.println("Exiting.......");
             System.exit(0);
         }
-                }
-        } 
+                
+        
        
         
         
@@ -283,19 +300,31 @@ else {
         
         System.out.println("\nEnter the Destination Type:- \n1.Predefined Locations\n2.Custom Locations");
         int loc_type=scanner.nextInt();
+        System.out.println("----------------------------------------");
         switch (loc_type) {
             case 1:
             System.out.println("List of Packages:");
             for (int i = 0; i < packages.length; i++) {
                 if (packages[i] != null) {
-                    System.out.println("Package Name: " + packages[i]);
-                    System.out.println("Tracking ID: " + pkgid[i]);
-                    System.out.println("Destination: " + Locations[i]);
+                    System.out.println("--------------------------");
+                  
+                    System.out.println("Sender Name: " + packages[i]);
+                    for (int j = 0; j < pkgid.length; j++) {
+                       if(pkgid[j]!=0){
+                        System.out.println("Tracking ID: " + pkgid[j]);
+                       }
+                    }
+                    for (int k = 0; k < Locations.length; k++) {
+                        if(Locations[k]!=null){
+                        System.out.println("Destination: " + Locations[i]);
+                        }
+                    }
+                  
                     System.out.println("-------------------------");
                 }
-                else if(packages[i]==null){
-                            System.out.println("No Package....");
-                }
+                // else if(packages[i]==null){
+                //             System.out.println("No Package....");
+                // }
             }
             break;
         
@@ -303,14 +332,28 @@ else {
             case 2:
             for (int i = 0; i < packages.length; i++) {
                 if (packages[i] != null) {
-                    System.out.println("Package Name: " + packages[i]);
-                    System.out.println("Tracking ID: " + pkgid[i]);
-                    System.out.println("Destination: " + new_Locations[i]);
+
+                System.out.println("---------------------------------");
+                    System.out.println("Sender Name: " + packages[i]);
+                
+                    for(int j=0;j<pkgid.length;j++){
+                        if(pkgid[j] != 0){
+                        System.out.println("Tracking ID: "+pkgid[j] );
+                        }
+                    }
+                    for (int k = 0; k < new_Locations.length; k++) {
+                       if(new_Locations[k] != null){
+                        System.out.println("Destination: " + new_Locations[k]);
+                       }
+                    }
+                    
                     System.out.println("-------------------------");
-                }
-                else if(packages[i]==null){
-                            System.out.println("No Package....");
-                }
+                
+                //  if(packages[i]==null){
+                //             System.out.println("No Package....");
+                // }
+            }
+            
                 
             }
             break;
