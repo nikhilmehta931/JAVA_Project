@@ -36,13 +36,14 @@ public class CourierManagementSystem {
         // Locations[3]="Amritsar";
         // Locations[4]="Ludhiana";
         // Locations[5]="Delhi";
-       
+       String ansi="\u001B[41m";
+       String ansi_reset="\u001B[0m";
        
        
        
         try{
-        String text = "\033[01m" +"\033[0;4m"+"****************Welcome To Courier Management System****************"+ "\033[0m"+ "\033[0m";
-        int delay = 10; // Delay between each character (in milliseconds)
+        String text = ansi+"****************Welcome To Courier Management System****************"+ansi_reset;
+        int delay = 55; // Delay between each character (in milliseconds)
         
         
         for (int i = 0; i < text.length(); i++) {
@@ -59,11 +60,11 @@ public class CourierManagementSystem {
             // System.out.println("\033[0;4m" +"**** Welcome to the Courier Management System ****");
             // System.out.println("***************\n");
             do {
-                System.out.println("\u001B[33m1. Create Shipment");
+                System.out.println("\u001B[34m"+"1.Create Shipment"+"");
                 System.out.println("2. Track Shipment");
-                System.out.println("3. View All Shipments  (For Admin)");
-                System.out.println("4. View Invoice");
-                System.out.println("5. Exit");
+                System.out.println(""+"3. View All Shipments  (For Admin)"+"");
+                System.out.println(""+"4. View Invoice"+"");
+                System.out.println(""+"5. Exit");
                 System.out.println("6. Return to Main Menu");
                 System.out.print("Choose an option: ");
                  option=scanner.nextInt();
@@ -98,6 +99,7 @@ public class CourierManagementSystem {
        }
        catch(InputMismatchException e){
         System.out.println("Invalid input....");
+        System.out.println("Exiting....");
        }
 
     }
@@ -175,6 +177,9 @@ System.out.println("Enter the Destination of the Package:- ");
             System.out.println("To send the Package to " + Destination + " you have to pay extra charges:");
             System.out.println("NOTE: For other locations we need help of third-party courier services, so the charges may be high compared to domestic locations.");
     
+            System.out.println("Enter the State:- ");
+            state=scanner.next();
+
             System.out.print("Enter the name of the Destination: ");
             String newLocation = scanner.next();
 
@@ -334,16 +339,16 @@ else {
                 if (packages[i] != null) {
 
                 System.out.println("---------------------------------");
-                    System.out.println("Sender Name: " + packages[i]);
+                    System.out.println("Sender Name: " +" "+i+ packages[i]);
                 
                     for(int j=0;j<pkgid.length;j++){
                         if(pkgid[j] != 0){
-                        System.out.println("Tracking ID: "+pkgid[j] );
+                        System.out.println("Tracking ID: "+""+j+pkgid[j] );
                         }
                     }
                     for (int k = 0; k < new_Locations.length; k++) {
                        if(new_Locations[k] != null){
-                        System.out.println("Destination: " + new_Locations[k]);
+                        System.out.println("Destination: " +" "+k+ new_Locations[k]);
                        }
                     }
                     
@@ -382,14 +387,14 @@ else {
             System.out.println("************************************");        
             System.out.println("                                        ");
             System.out.println("ID:- "+invoice_id);
-            System.out.println("Name:- "+name);
+            System.out.println("Sender:- "+name);
             System.out.println("Reciever:- "+r_name);
-            System.out.println("Destination:- "+Destination+"\n"+House_no);
+            System.out.println("Destination:- "+Destination+" ,"+House_no);
             System.out.println("Weight:- "+packageWeight+" KG");
             Double cost=50*packageWeight;
             System.out.println("Total Cost:- "+""+cost);
             System.out.println("***********************************************************");
-            System.out.println("Thanks for Choosing Our Service ☻");
+            System.out.println("Thanks for Choosing Our Service :) ");
             
     }
          else{
