@@ -65,7 +65,7 @@ public class CourierManagementSystem {
                 System.out.println(""+"3. View All Shipments  (For Admin)"+"");
                 System.out.println(""+"4. View Invoice"+"");
                 System.out.println(""+"5. Exit");
-                System.out.println("6. Return to Main Menu");
+                // System.out.println("6. Return to Main Menu");
                 System.out.print("Choose an option: ");
                  option=scanner.nextInt();
                
@@ -89,8 +89,8 @@ public class CourierManagementSystem {
                     case 5:
                         exit();
                         break;
-                    case 6:
-                        System.out.println("Return to main Menu");
+                    // case 6:
+                    //     System.out.println("Return to main Menu");
                      default:
                         System.out.println("!!Oops Invalid Option Try Again :(");
                 }
@@ -339,16 +339,16 @@ else {
                 if (packages[i] != null) {
 
                 System.out.println("---------------------------------");
-                    System.out.println("Sender Name: " +" "+i+ packages[i]);
+                    System.out.println("Sender Name: " +" "+ packages[i]);
                 
                     for(int j=0;j<pkgid.length;j++){
                         if(pkgid[j] != 0){
-                        System.out.println("Tracking ID: "+""+j+pkgid[j] );
+                        System.out.println("Tracking ID: "+""+pkgid[j] );
                         }
                     }
                     for (int k = 0; k < new_Locations.length; k++) {
                        if(new_Locations[k] != null){
-                        System.out.println("Destination: " +" "+k+ new_Locations[k]);
+                        System.out.println("Destination: " +" "+new_Locations[k]);
                        }
                     }
                     
@@ -398,19 +398,7 @@ else {
             
     }
          else{
-        //     System.out.println("Thanks...");   
-        //     System.out.println("************************************");        
-        //     System.out.println("                                        ");
-        //     System.out.println("ID:- "+ID);
-        //     System.out.println("Sender:- "+name);
-        //     System.out.println("Reciver:- "+r_name);
-        //     System.out.println("Destination:- "+Destination);
-        //     System.out.println("Weight:- "+packageWeight);
-        //    Double cost= 50*packageWeight;
-        //     System.out.println("Total Cost:- "+cost);
-        //     System.out.println("75 Rupees/KG Additional Charges...");
-        //     System.out.println("***********************************************************");
-        //     System.out.println("Thanks for Choosing Our Service :)");
+       
         System.out.println("Tracking ID does not Exist...........");
         System.out.println("Kindly Create the Package :( ");
         while(invoice_id==ID){
@@ -451,13 +439,4 @@ catch(InputMismatchException e){
     
 }
 }
-//
 
-// public class CourierManagementSystem {
-//     public static void main(String[] args) {
-//         System.out.println("\033[0;1m" + "Big Text" + "\033[0m");
-//         System.out.println("\033[0;4m" + "Underline Text" + "\033[0m");
-//         System.out.println("\033[0;7m" + "Reverse Text" + "\033[0m");
-//         System.out.println("\033[0;2m" + "Small Text" + "\033[0m");
-//     }
-// }
