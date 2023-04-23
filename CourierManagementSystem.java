@@ -41,7 +41,7 @@ public class CourierManagementSystem {
        
        
        
-        try{
+        // try{
         String text = ansi+"****************Welcome To Courier Management System****************"+ansi_reset;
         int delay = 55; // Delay between each character (in milliseconds)
         
@@ -96,13 +96,25 @@ public class CourierManagementSystem {
                 }
             } while (option != 5);
         }
-       }
-       catch(InputMismatchException e){
-        System.out.println("Invalid input....");
-        System.out.println("Exiting....");
-       }
+        catch(InputMismatchException e){
+            System.out.println("Invalid input...!!");
+            String s="EXITING"+"\\/\\/\\/\\/\\/\\/\\/\\";
+            int delay_1=150;
+              for (int j = 0; j<s.length(); j++) {
+                      Thread.sleep(delay_1);
+                      System.out.print("\r"+s.substring(0,j+1));
+             }
+              
+              System.exit(0);
+        }
 
-    }
+       }
+    //    catch(InputMismatchException e){
+    //     System.out.println("Invalid input....");
+    //     System.out.println("Exiting....");
+    //    }
+
+    // }
 
 //Create Shipment
     public static void addPackage() throws InputMismatchException {
@@ -303,13 +315,13 @@ else {
 }
 
         
-        System.out.println("\nEnter the Destination Type:- \n1.Predefined Locations\n2.Custom Locations");
+        System.out.println("\nEnter the Destination Type:- \n1.Predefined Locations\n2.Custom Locations \n3.Remove All Shipments");
         int loc_type=scanner.nextInt();
         System.out.println("----------------------------------------");
         switch (loc_type) {
             case 1:
-            System.out.println("List of Packages:");
-            for (int i = 0; i < packages.length; i++) {
+                System.out.println("List of Packages:");
+                for (int i = 0; i < packages.length; i++) {
                 if (packages[i] != null) {
                     System.out.println("--------------------------");
                   
@@ -330,12 +342,13 @@ else {
                 // else if(packages[i]==null){
                 //             System.out.println("No Package....");
                 // }
-            }
-            break;
+                
+                }
+                break;
         
         
             case 2:
-            for (int i = 0; i < packages.length; i++) {
+                for (int i = 0; i < packages.length; i++) {
                 if (packages[i] != null) {
 
                 System.out.println("---------------------------------");
@@ -359,9 +372,26 @@ else {
                 // }
             }
             
-                
             }
             break;
+
+            case 3:
+                    for(int i=0;i<packages.length;i++){
+                        packages[i]=null;
+                    }
+                    for(int j=0;j<pkgid.length;j++){
+                        pkgid[j]=0;
+                    }
+                    text = "Deleting all Packages..."+"\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/"; 
+                    int delay = 180; // Delay between each character (in milliseconds)
+                    for (int j = 0; j < text.length(); j++) {
+                    Thread.sleep(delay);
+                    System.out.print("\r" + text.substring(0, j+1));}
+                    System.out.println("Shipment Deleted successfully");
+                    break;
+            
+
+            
                 default:
                     System.out.println("Invalid Input...");
                 break;
