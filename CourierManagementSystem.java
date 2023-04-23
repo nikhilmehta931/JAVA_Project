@@ -41,7 +41,7 @@ public class CourierManagementSystem {
        
        
        
-        // try{
+        try{
         String text = ansi+"****************Welcome To Courier Management System****************"+ansi_reset;
         int delay = 55; // Delay between each character (in milliseconds)
         
@@ -96,6 +96,7 @@ public class CourierManagementSystem {
                 }
             } while (option != 5);
         }
+    }
         catch(InputMismatchException e){
             System.out.println("Invalid input...!!");
             String s="EXITING"+"\\/\\/\\/\\/\\/\\/\\/\\";
@@ -103,21 +104,21 @@ public class CourierManagementSystem {
               for (int j = 0; j<s.length(); j++) {
                       Thread.sleep(delay_1);
                       System.out.print("\r"+s.substring(0,j+1));
+                      
+                      
              }
+             System.exit(0);
+            }
+
+
+
               
-              System.exit(0);
+              
         }
-
-       }
-    //    catch(InputMismatchException e){
-    //     System.out.println("Invalid input....");
-    //     System.out.println("Exiting....");
-    //    }
-
-    // }
+ 
 
 //Create Shipment
-    public static void addPackage() throws InputMismatchException {
+    public static void addPackage() throws InputMismatchException,InterruptedException {
        try{
         Scanner scanner = new Scanner(System.in);
     
@@ -220,14 +221,23 @@ System.out.println("Enter the Destination of the Package:- ");
         }
     }
     catch(InputMismatchException e){
-        System.out.println("Invalid input.....");
+        System.out.println("Invalid input...!!");
+            String s="EXITING"+"\\/\\/\\/\\/\\/\\/\\/\\";
+            int delay_1=150;
+              for (int j = 0; j<s.length(); j++) {
+                      Thread.sleep(delay_1);
+                      System.out.print("\r"+s.substring(0,j+1));
+                      
+                      
+             }
+             System.exit(0);
     }
     }
     
 
             
     //track Shipment 
-    public static void trackPackage() throws InterruptedException {
+    public static void trackPackage() throws InterruptedException,InputMismatchException {
         try{
         //    System.out.println("This Functionality is Coming Soon....:)");
         System.out.println("Enter the Tracking id of the Package:- ");
@@ -243,7 +253,16 @@ System.out.println("Enter the Destination of the Package:- ");
         }
     }
 catch(InputMismatchException e){
-    System.out.println("Invalid input....");
+    System.out.println("Invalid input...!!");
+    String s="EXITING"+"\\/\\/\\/\\/\\/\\/\\/\\";
+    int delay_1=150;
+      for (int j = 0; j<s.length(); j++) {
+              Thread.sleep(delay_1);
+              System.out.print("\r"+s.substring(0,j+1));
+              
+              
+     }
+     System.exit(0);
 
 }
 
@@ -400,13 +419,22 @@ else {
     }
     catch (InputMismatchException e)
 			{
-				System.out.println("Invalid input.");
+				System.out.println("Invalid input...!!");
+            String s="EXITING"+"\\/\\/\\/\\/\\/\\/\\/\\";
+            int delay_1=150;
+              for (int j = 0; j<s.length(); j++) {
+                      Thread.sleep(delay_1);
+                      System.out.print("\r"+s.substring(0,j+1));
+                      
+                      
+             }
+             System.exit(0);System.out.println("Invalid input.");
 
 				// option=0;
 			}
         }
 //View Invoice
-    public static void viewInvoice() throws InterruptedException {
+    public static void viewInvoice() throws InterruptedException,InputMismatchException {
         // System.out.println("This Functionality is Coming Soon....");
        try{
         System.out.println("Enter the ID of the Package :- ");
@@ -443,13 +471,22 @@ else {
       
     }
     catch(InputMismatchException e){
-        System.out.println("Invalid Input...");
+        System.out.println("Invalid input...!!");
+        String s="EXITING"+"\\/\\/\\/\\/\\/\\/\\/\\";
+        int delay_1=150;
+          for (int j = 0; j<s.length(); j++) {
+                  Thread.sleep(delay_1);
+                  System.out.print("\r"+s.substring(0,j+1));
+                  
+                  
+         }
+         System.exit(0); System.out.println("Invalid Input...");
 }
 
 
 }
 
-public static void exit() throws InterruptedException{
+public static void exit() throws InterruptedException,InputMismatchException{
    try{
     String t = "\\/\\/\\/\\/\\/\\/";
                     int d = 300; // Delay between each character (in milliseconds)
@@ -464,7 +501,16 @@ public static void exit() throws InterruptedException{
 }
 
 catch(InputMismatchException e){
-        System.out.println("Invalid Input.....");
+    System.out.println("Invalid input...!!");
+    String s="EXITING"+"\\/\\/\\/\\/\\/\\/\\/\\";
+    int delay_1=150;
+      for (int j = 0; j<s.length(); j++) {
+              Thread.sleep(delay_1);
+              System.out.print("\r"+s.substring(0,j+1));
+              
+              
+     }
+     System.exit(0);
 }
     
 }
